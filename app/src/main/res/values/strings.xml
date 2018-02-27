@@ -18,7 +18,28 @@
     <string-array name="events_array">
         <item>Select Event..</item>
         <item>OSPC</item>
+        <item>Cyber Wars</item>
+        <item>Hello World</item>
+        <item>Code Man</item>
+        <item>Webaholic</item>
+        <item>Code Hunt</item>
+        <item>Flash</item>
+        <item>Re'present</item>
+        <item>Alcatraz</item>
+        <item>Finding Nemo</item>
+        <item>Houseful</item>
+        <item>General Quiz</item>
+        <item>Katradhu Thamizh</item>
+        <item>Debugging</item>
+        <item>Alohomora</item>
         <item>Game of Nerds</item>
+        <item>3 Musketeers</item>
+        <item>Bid Battle</item>
+        <item>Marketing Mania</item>
+        <item>Randomize</item>
+        <item>Fandom Quiz</item>
+        <item>Gamindrome</item>
+        <item>Spin to win</item>
     </string-array>
 
 </resources>

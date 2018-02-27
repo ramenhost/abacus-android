@@ -12,7 +12,6 @@ import android.os.Vibrator
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.*
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView
@@ -29,7 +28,7 @@ import org.jetbrains.anko.uiThread
 class MainActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener, View.OnClickListener {
 
     private lateinit var aidRegex: Regex
-    private val MY_PERMISSIONS_REQUEST_CAMERA: Int = 5
+    private val PERMISSIONS_REQUEST_CAMERA: Int = 5
     private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener,
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     arrayOf(Manifest.permission.CAMERA),
-                    MY_PERMISSIONS_REQUEST_CAMERA)
+                    PERMISSIONS_REQUEST_CAMERA)
         } else {
             layoutInflater.inflate(R.layout.qrdecoder, qrdecoderFrame, true)
             initializeQRReader()
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener,
     override fun onClick(view: View?) {
         when(view?.id) {
             R.id.addButton -> {
-                if(aidEditText.text != null) {
+                if(aidEditText.text.isNotEmpty()) {
                     addButton.visibility = View.GONE
                     val checkInEntry = CheckInEntry(null, "ab"+aidEditText.text, false)
                     doAsync {
@@ -124,7 +123,7 @@ class MainActivity : AppCompatActivity(), QRCodeReaderView.OnQRCodeReadListener,
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
-            MY_PERMISSIONS_REQUEST_CAMERA -> {
+            PERMISSIONS_REQUEST_CAMERA -> {
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     layoutInflater.inflate(R.layout.qrdecoder, qrdecoderFrame, true)
                     initializeQRReader()

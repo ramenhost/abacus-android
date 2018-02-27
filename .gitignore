@@ -127,5 +127,7 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+# APK signature
+apk-signature
 
 # End of https://www.gitignore.io/api/androidstudio
